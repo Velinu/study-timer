@@ -5,11 +5,13 @@
     <TimerMain :hours="formatTime(hours)" :minutes="formatTime(minutes)" :seconds="formatTime(seconds)" />
     
     <div id="command-buttons">
-      <commandButton @click="playTimer()" iconComBtn="/icons/play.png" altComBtn="Play Button" />
-      <commandButton @click="resetTimer()" iconComBtn="/icons/pause.png" altComBtn="Reset Time Button" />
+      
+      <commandButton @click="playTimer()" :iconComBtn="playSrc" altComBtn="Play Time Button" />
+      <commandButton @click="resetTimer()" iconComBtn="/icons/reset.png" altComBtn="Reset Time Button" />
 
       <commandButton @click="addHours()" iconComBtn="/icons/addHour.png" altComBtn="Add Hours Button" />
-      <commandButton @click="decrHours()" iconComBtn="#" altComBtn="Decrement Hours Button" />
+      <commandButton @click="decrHours()" iconComBtn="/icons/decrHour.png" altComBtn="Decrement Hours Button" />
+      
     </div>
 
   </main>
@@ -27,42 +29,54 @@ export default {
       hours: 0,
       minutes: 0,
       seconds: 0,
-      timer: null
+      timer: null,
+      isPlayng: true,
+      playSrc: '/icons/play.png'
     }
   },
 
   components: {
     TimerMain,
     headerComponent,
-    commandButton
+    commandButton,
   },
+
   methods: {
     playTimer(){
-      this.timer = setInterval(() => {
-        if (this.seconds > 0) {
-          this.seconds--;
-        } else {
-          if (this.minutes > 0) {
-            this.minutes--;
-            this.seconds = 59;
-          } else {
-            if (this.hours > 0) {
-              this.hours--;
-              this.minutes = 59;
-              this.seconds = 59;
+        if(this.isPlayng == false){
+          this.playSrc = '/icons/pause.png'
+          this.isPlayng = !this.isPlayng
+
+          this.timer = setInterval(() => {
+            if (this.seconds > 0) {
+              this.seconds--;
             } else {
-              clearInterval(this.timer);
+              if (this.minutes > 0) {
+                this.minutes--;
+                this.seconds = 59;
+              } else {
+                if (this.hours > 0) {
+                  this.hours--;
+                  this.minutes = 59;
+                  this.seconds = 59;
+                } else {
+                  clearInterval(this.timer);
+                }
+              }
             }
-          }
+          }, 1000);
+        }else{
+          this.playSrc = '/icons/play.png'
+          clearInterval(this.timer)
+          this.isPlayng = !this.isPlayng
         }
-      }, 1000);
     },
+    
     resetTimer(){
       this.hours = 0
       this.minutes = 0
       this.seconds = 0
     },
-
     addHours(){
       if(this.hours < 24){
         this.hours ++
@@ -98,7 +112,7 @@ export default {
   }
 
   #command-buttons button{
-    margin: 2.5vw;
+    margin: 1.5vw;
     margin-top: 0;
   }
 </style>
