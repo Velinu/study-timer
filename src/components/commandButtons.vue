@@ -22,6 +22,7 @@
         border-radius: 50%;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         transition: 0.2s ease-in-out;
+        user-select: none;
     }
     img{
         height: 2.5vh;

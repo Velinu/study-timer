@@ -9,10 +9,14 @@
       <commandButton @click="playTimer()" :iconComBtn="playSrc" altComBtn="Play Time Button" />
       <commandButton @click="resetTimer()" iconComBtn="/icons/reset.png" altComBtn="Reset Time Button" />
 
+      
+
       <commandButton @click="addHours()" iconComBtn="/icons/addHour.png" altComBtn="Add Hours Button" />
       <commandButton @click="decrHours()" iconComBtn="/icons/decrHour.png" altComBtn="Decrement Hours Button" />
-      
+
     </div>
+
+    <searchTrack />
 
   </main>
 

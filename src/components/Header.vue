@@ -38,6 +38,7 @@
         justify-content: end;
         align-items: center;
         font-size: 15px;
+        user-select: none;
     }
 
     #logo-container{
