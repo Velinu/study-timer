@@ -38,7 +38,7 @@ export default{
     }
 
     h1{
-        font-size: 4em;
+        font-size: 5vh;
         font-family: 'Inconsolata', monospace;
         font-family: 'Poppins', sans-serif;
     }

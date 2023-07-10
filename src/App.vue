@@ -2,6 +2,8 @@
   <headerComponent />
 
   <main>
+
+    <logoTitle />
     <TimerMain :hours="formatTime(hours)" :minutes="formatTime(minutes)" :seconds="formatTime(seconds)" />
     
     <div id="command-buttons">
@@ -9,15 +11,14 @@
       <commandButton @click="playTimer()" :iconComBtn="playSrc" altComBtn="Play Time Button" />
       <commandButton @click="resetTimer()" iconComBtn="/icons/reset.png" altComBtn="Reset Time Button" />
 
-      
-
       <commandButton @click="addHours()" iconComBtn="/icons/addHour.png" altComBtn="Add Hours Button" />
       <commandButton @click="decrHours()" iconComBtn="/icons/decrHour.png" altComBtn="Decrement Hours Button" />
-
     </div>
+    <radioIframe :radioURL="radio"/>
 
-    <searchTrack />
-
+    
+    <soundButton icon="/icons/rain.png"/>
+    
   </main>
 
 </template>
@@ -26,6 +27,9 @@
 import TimerMain from './components/Timer.vue'
 import headerComponent from './components/Header.vue'
 import commandButton from './components/commandButtons.vue'
+import soundButton from './components/soundButton.vue'
+import radioIframe from './components/radioIframe.vue'
+import logoTitle from './components/title.vue'
 export default {
   name: 'App',
   data() {
@@ -35,7 +39,8 @@ export default {
       seconds: 0,
       timer: null,
       isPlayng: true,
-      playSrc: '/icons/play.png'
+      playSrc: '/icons/play.png',
+      radio: 'https://hunter.fm/lofi/'
     }
   },
 
@@ -43,6 +48,9 @@ export default {
     TimerMain,
     headerComponent,
     commandButton,
+    soundButton,
+    radioIframe,
+    logoTitle
   },
 
   methods: {

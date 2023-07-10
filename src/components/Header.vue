@@ -53,6 +53,7 @@
 
     .logos{
         height: 5.5vh;
+        width: 3vw;
         margin-right: 1vw;
     }
 
