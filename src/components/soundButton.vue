@@ -1,24 +1,53 @@
 <template>
-    <div id='sound-button-container'>
-        <img id='icon' :src="icon">
-        <audio :src="sound"></audio>
-        <input type="range" min="0" max="100" value="50" name="" id="">
-        
-        <button>
-            <img src="/icons/play.png" alt="">
-        </button>
+    <div id="sound-button-container">
+      <img id="icon" :src="icon">
+      <input id="range-imp" type="range" min="0" max="100" v-model="audioValue" @input="changeVolume" name="">
+  
+      <button @click.prevent="toggleAudio">
+        <img :src="playBtnIcon" alt="">
+      </button>
+  
+      <audio ref="audioSrc">
+        <source :src="sound">
+      </audio>
     </div>
-</template>
-
-<script>
-    export default{
-        name: "soundButton",
-        props: {
-            sound: String,
-            icon: String
+  </template>
+  
+  <script>
+  export default {
+    name: "soundButton",
+    props: {
+      sound: String,
+      icon: String
+    },
+    data() {
+      return {
+        isPlaying: false,
+        playBtnIcon: '/icons/play.png',
+        audioElement: null,
+        audioValue: 0
+      }
+    },
+    mounted() {
+      this.audioElement = this.$refs.audioSrc;
+    },
+    methods: {
+      toggleAudio() {
+        if (this.isPlaying) {
+          this.audioElement.pause();
+          this.playBtnIcon = '/icons/play.png';
+        } else {
+          this.audioElement.play();
+          this.playBtnIcon = '/icons/pause.png';
         }
+        this.isPlaying = !this.isPlaying;
+      },
+      changeVolume() {
+        this.audioElement.volume = this.audioValue / 100
+      }
     }
-</script>
+  }
+  </script>
 
 <style scoped>
     #sound-button-container{
@@ -66,6 +95,13 @@
         margin: none;
     }
 
-    
+    #range-imp{
+        --webkit-appearance: none;
+        width: 80%;
+        height: 0.1em;
+        outline: none;
+        border-radius: 5px;
+    }
+
 
 </style>

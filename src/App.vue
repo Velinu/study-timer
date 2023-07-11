@@ -15,7 +15,7 @@
     <radioIframe :radioURL="radio"/>
 
     
-    <soundButton @click="teste" icon="/icons/rain.png"/>
+    <soundButton @click="teste" sound="/sounds/rain.wav" icon="/icons/rain.png"/>
     
   </main>
 
