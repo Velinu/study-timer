@@ -2,8 +2,6 @@
   <headerComponent />
 
   <main>
-
-    <logoTitle />
     <TimerMain :hours="formatTime(hours)" :minutes="formatTime(minutes)" :seconds="formatTime(seconds)" />
     
     <div id="command-buttons">
@@ -17,7 +15,7 @@
     <radioIframe :radioURL="radio"/>
 
     
-    <soundButton icon="/icons/rain.png"/>
+    <soundButton @click="teste" icon="/icons/rain.png"/>
     
   </main>
 
@@ -29,7 +27,6 @@ import headerComponent from './components/Header.vue'
 import commandButton from './components/commandButtons.vue'
 import soundButton from './components/soundButton.vue'
 import radioIframe from './components/radioIframe.vue'
-import logoTitle from './components/title.vue'
 export default {
   name: 'App',
   data() {
@@ -50,7 +47,6 @@ export default {
     commandButton,
     soundButton,
     radioIframe,
-    logoTitle
   },
 
   methods: {
@@ -107,6 +103,9 @@ export default {
 
     formatTime(time){
       return time < 10 ? `0${time}` : time
+    },
+
+    teste() {
     }
   }
   
