@@ -1,24 +1,9 @@
-# study-timer
+<h1 align="center"> Study Timer </h1>
 
-## Project setup
-```
-npm install
-```
+![Badge](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
+![Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Description
+- A countdown clock wich can be used to relax and focus on study for some time
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
