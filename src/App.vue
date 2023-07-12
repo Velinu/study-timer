@@ -4,8 +4,7 @@
   <main>
     <TimerMain :hours="formatTime(hours)" :minutes="formatTime(minutes)" :seconds="formatTime(seconds)" />
     
-    <div id="command-buttons">
-      
+    <div id="command-buttons">  
       <commandButton @click="playTimer()" :iconComBtn="playSrc" altComBtn="Play Time Button" />
       <commandButton @click="resetTimer()" iconComBtn="/icons/reset.png" altComBtn="Reset Time Button" />
 
@@ -14,9 +13,12 @@
     </div>
     <radioIframe :radioURL="radio"/>
 
-    
-    <soundButton @click="teste" sound="/sounds/rain.wav" icon="/icons/rain.png"/>
-    
+    <div id="sound-buttons">
+      <soundButton @click="teste" sound="/sounds/rain.wav" icon="/icons/sound/rain.png"/>
+      <soundButton @click="teste" sound="/sounds/campfire.wav" icon="/icons/sound/fire.png"/>
+      <soundButton @click="teste" sound="/sounds/nature.mp3" icon="/icons/sound/tree.png"/>
+      <soundButton @click="teste" sound="/sounds/talking.mp3" icon="/icons/sound/pub.png"/>
+    </div>
   </main>
 
 </template>
@@ -125,5 +127,10 @@ export default {
   #command-buttons button{
     margin: 1.5vw;
     margin-top: 0;
+  }
+  #sound-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8vh;
   }
 </style>
