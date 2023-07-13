@@ -4,6 +4,6 @@
 ![Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 # Description
-- A countdown clock wich can be used to relax and focus on study for some time
-
+<p>- A countdown clock wich can be used to relax and focus on study for some time</p>
+<p>- Link to the  <a href="https://studytimervue.netlify.app">project</a></p>
 
